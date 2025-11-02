@@ -5,4 +5,7 @@ day 1 - points
   I made a map showing the metro coverage in dc
 
 day 2 - lines
+  Toronto in layers! 
+
+day 3 - polygons
   TBD
