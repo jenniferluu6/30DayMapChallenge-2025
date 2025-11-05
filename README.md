@@ -7,5 +7,5 @@ day 1 - points
 day 2 - lines
   Toronto in layers! 
 
-day 3 - polygons
-  TBD
+day 4 - my data
+  Check out my recommendations across the last three cities I have lived in: nyc, la, and chicago
