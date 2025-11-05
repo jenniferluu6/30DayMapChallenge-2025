@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6c4fe925001c91c97f7eb6d1db3555cc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 20px; right: 20px; 
+                background-color: white; 
+                border: 2px solid grey; 
+                border-radius: 5px;
+                padding: 10px; 
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+                z-index: 9999;
+                box-shadow: 2px 2px 6px rgba(0,0,0,0.3);">
+        <div style="margin-bottom: 8px; font-weight: bold;">Legend</div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: red;"></i> Food
+        </div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: purple;"></i> Nightlife
+        </div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: blue;"></i> Activities
+        </div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ccc;">
+            <i class="fa fa-star" style="color: gold;"></i> Favorite
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_6c4fe925001c91c97f7eb6d1db3555cc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6c4fe925001c91c97f7eb6d1db3555cc = L.map(
+                "map_6c4fe925001c91c97f7eb6d1db3555cc",
+                {
+                    center: [40.7128, -74.006],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_664c9d6a631a1e3a9640cb8288704943 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var marker_6ae3e66fc6789cf827ab0038cd2e7e87 = L.marker(
+                [40.7026903, -73.9914001],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_061f4a972972a60c1198136291abe9a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6ae3e66fc6789cf827ab0038cd2e7e87.setIcon(icon_061f4a972972a60c1198136291abe9a8);
+        
+    
+        var popup_7edd9ba1139f26457a0ccaf3531c6088 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_bd8a0c43a28fc4bd15ba6e992675b846 = $(`<div id="html_bd8a0c43a28fc4bd15ba6e992675b846" style="width: 100.0%; height: 100.0%;"><b>Em Vietnamese Bistro</b><br>Food<br>57 Front St, Brooklyn, NY 11201</div>`)[0];
+                popup_7edd9ba1139f26457a0ccaf3531c6088.setContent(html_bd8a0c43a28fc4bd15ba6e992675b846);
+            
+        
+
+        marker_6ae3e66fc6789cf827ab0038cd2e7e87.bindPopup(popup_7edd9ba1139f26457a0ccaf3531c6088)
+        ;
+
+        
+    
+    
+            marker_6ae3e66fc6789cf827ab0038cd2e7e87.bindTooltip(
+                `<div>
+                     Em Vietnamese Bistro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_81f65eb85d55ef995c141f7dc2087c48 = L.marker(
+                [40.7457091, -73.9853583],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_0c1613ea6040d95b5c886c860c957e8e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_81f65eb85d55ef995c141f7dc2087c48.setIcon(icon_0c1613ea6040d95b5c886c860c957e8e);
+        
+    
+        var popup_ffcb27be675e979448e19a1d43cb39a9 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_4d2cf7fca966e1916896493fe34fc4d0 = $(`<div id="html_4d2cf7fca966e1916896493fe34fc4d0" style="width: 100.0%; height: 100.0%;"><b>OKDONGSIK</b><br>Food<br>13 E 30th St, New York, NY 10016</div>`)[0];
+                popup_ffcb27be675e979448e19a1d43cb39a9.setContent(html_4d2cf7fca966e1916896493fe34fc4d0);
+            
+        
+
+        marker_81f65eb85d55ef995c141f7dc2087c48.bindPopup(popup_ffcb27be675e979448e19a1d43cb39a9)
+        ;
+
+        
+    
+    
+            marker_81f65eb85d55ef995c141f7dc2087c48.bindTooltip(
+                `<div>
+                     OKDONGSIK
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_11ad32b8e34b0b4817ad12a45a3149c8 = L.marker(
+                [40.7483075, -73.9866107],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_3d1e92e934d7eac0d8a681de3ca287d4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_11ad32b8e34b0b4817ad12a45a3149c8.setIcon(icon_3d1e92e934d7eac0d8a681de3ca287d4);
+        
+    
+        var popup_cd4b3dd078f4bffca869f1a004a3c067 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_649421edd84511fe9dd197961b392208 = $(`<div id="html_649421edd84511fe9dd197961b392208" style="width: 100.0%; height: 100.0%;"><b>Seoul Salon</b><br>Food<br>28 W 33rd St, New York, NY 10001<br>⭐ FAVORITE</div>`)[0];
+                popup_cd4b3dd078f4bffca869f1a004a3c067.setContent(html_649421edd84511fe9dd197961b392208);
+            
+        
+
+        marker_11ad32b8e34b0b4817ad12a45a3149c8.bindPopup(popup_cd4b3dd078f4bffca869f1a004a3c067)
+        ;
+
+        
+    
+    
+            marker_11ad32b8e34b0b4817ad12a45a3149c8.bindTooltip(
+                `<div>
+                     Seoul Salon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5888478d911a6ceea75232a7b6993822 = L.marker(
+                [40.7272718, -73.9858512],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_b1d96f0df761847fe38a43bad5a1930b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5888478d911a6ceea75232a7b6993822.setIcon(icon_b1d96f0df761847fe38a43bad5a1930b);
+        
+    
+        var popup_fc5ce3009bb2bf5e21aac01dd8c4de92 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e3b74b7436eafdfd780fc636e80069a5 = $(`<div id="html_e3b74b7436eafdfd780fc636e80069a5" style="width: 100.0%; height: 100.0%;"><b>ARIARI</b><br>Food<br>119 1st Ave, New York, NY 10003</div>`)[0];
+                popup_fc5ce3009bb2bf5e21aac01dd8c4de92.setContent(html_e3b74b7436eafdfd780fc636e80069a5);
+            
+        
+
+        marker_5888478d911a6ceea75232a7b6993822.bindPopup(popup_fc5ce3009bb2bf5e21aac01dd8c4de92)
+        ;
+
+        
+    
+    
+            marker_5888478d911a6ceea75232a7b6993822.bindTooltip(
+                `<div>
+                     ARIARI
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_13e2787524e6ab9265acf8e84f2311b4 = L.marker(
+                [40.6773469, -73.9825112],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_bc62503c73a8afda3be9eda196c0fcf0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_13e2787524e6ab9265acf8e84f2311b4.setIcon(icon_bc62503c73a8afda3be9eda196c0fcf0);
+        
+    
+        var popup_f7018067d34ac62b02549ed346ec8dd6 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_caf81d028ab84d4e6395441edf18b2b6 = $(`<div id="html_caf81d028ab84d4e6395441edf18b2b6" style="width: 100.0%; height: 100.0%;"><b>Wangs</b><br>Food<br>671 Union St, Brooklyn, NY 11215</div>`)[0];
+                popup_f7018067d34ac62b02549ed346ec8dd6.setContent(html_caf81d028ab84d4e6395441edf18b2b6);
+            
+        
+
+        marker_13e2787524e6ab9265acf8e84f2311b4.bindPopup(popup_f7018067d34ac62b02549ed346ec8dd6)
+        ;
+
+        
+    
+    
+            marker_13e2787524e6ab9265acf8e84f2311b4.bindTooltip(
+                `<div>
+                     Wangs
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_72e1fd6fb95a73bd32b62cabb248097b = L.marker(
+                [40.7359257, -73.9871655],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_019e4ece3cf1d4d2ba0039ff55dd6fbb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_72e1fd6fb95a73bd32b62cabb248097b.setIcon(icon_019e4ece3cf1d4d2ba0039ff55dd6fbb);
+        
+    
+        var popup_b03b13a0949913bd87f093c08eea82cd = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_01e9c96869354bcf4eabff383126f4fe = $(`<div id="html_01e9c96869354bcf4eabff383126f4fe" style="width: 100.0%; height: 100.0%;"><b>Casa Mono</b><br>Food<br>52 Irving Pl, New York, NY 10003<br>⭐ FAVORITE</div>`)[0];
+                popup_b03b13a0949913bd87f093c08eea82cd.setContent(html_01e9c96869354bcf4eabff383126f4fe);
+            
+        
+
+        marker_72e1fd6fb95a73bd32b62cabb248097b.bindPopup(popup_b03b13a0949913bd87f093c08eea82cd)
+        ;
+
+        
+    
+    
+            marker_72e1fd6fb95a73bd32b62cabb248097b.bindTooltip(
+                `<div>
+                     Casa Mono
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cb8dc77bb55367e1683fffa84372c703 = L.marker(
+                [40.7116097, -73.9578261],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_558c1b043ed1c9d1dee3110758d85603 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_cb8dc77bb55367e1683fffa84372c703.setIcon(icon_558c1b043ed1c9d1dee3110758d85603);
+        
+    
+        var popup_3e8d8667263df86903f437b184732049 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f661f95c9dc19c4e50573edda05aa309 = $(`<div id="html_f661f95c9dc19c4e50573edda05aa309" style="width: 100.0%; height: 100.0%;"><b>L'indistrie</b><br>Food<br>254 S 2nd St, Brooklyn, NY 11211</div>`)[0];
+                popup_3e8d8667263df86903f437b184732049.setContent(html_f661f95c9dc19c4e50573edda05aa309);
+            
+        
+
+        marker_cb8dc77bb55367e1683fffa84372c703.bindPopup(popup_3e8d8667263df86903f437b184732049)
+        ;
+
+        
+    
+    
+            marker_cb8dc77bb55367e1683fffa84372c703.bindTooltip(
+                `<div>
+                     L'indistrie
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dff1aeb43aaa6c203e1c104f4c7cda71 = L.marker(
+                [40.7230597, -73.9897166],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_1156ffb1cb77ca62e7d96ae918db6f6d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_dff1aeb43aaa6c203e1c104f4c7cda71.setIcon(icon_1156ffb1cb77ca62e7d96ae918db6f6d);
+        
+    
+        var popup_a4e16ec8ab28e1cd453c418d847a3a34 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_298e27d497a1dbee3f152cafae4d1c73 = $(`<div id="html_298e27d497a1dbee3f152cafae4d1c73" style="width: 100.0%; height: 100.0%;"><b>Pizza loves sauce</b><br>Food<br>147 E Houston St, New York, NY 10002</div>`)[0];
+                popup_a4e16ec8ab28e1cd453c418d847a3a34.setContent(html_298e27d497a1dbee3f152cafae4d1c73);
+            
+        
+
+        marker_dff1aeb43aaa6c203e1c104f4c7cda71.bindPopup(popup_a4e16ec8ab28e1cd453c418d847a3a34)
+        ;
+
+        
+    
+    
+            marker_dff1aeb43aaa6c203e1c104f4c7cda71.bindTooltip(
+                `<div>
+                     Pizza loves sauce
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77e87a9cf94c02f59198926f752ea680 = L.marker(
+                [40.7176165, -73.9524013],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_8f3f26f256088d8a4586a369771a8053 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_77e87a9cf94c02f59198926f752ea680.setIcon(icon_8f3f26f256088d8a4586a369771a8053);
+        
+    
+        var popup_63e2334d18097acc68fdc2bf291fb0b2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_efc101484e80f1fa5245472b805f6c3d = $(`<div id="html_efc101484e80f1fa5245472b805f6c3d" style="width: 100.0%; height: 100.0%;"><b>Lilia</b><br>Food<br>567 Union Ave, Brooklyn, NY 11211</div>`)[0];
+                popup_63e2334d18097acc68fdc2bf291fb0b2.setContent(html_efc101484e80f1fa5245472b805f6c3d);
+            
+        
+
+        marker_77e87a9cf94c02f59198926f752ea680.bindPopup(popup_63e2334d18097acc68fdc2bf291fb0b2)
+        ;
+
+        
+    
+    
+            marker_77e87a9cf94c02f59198926f752ea680.bindTooltip(
+                `<div>
+                     Lilia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_00560fc640c9638584e538f4b6cc7f77 = L.marker(
+                [40.7237974, -73.951544],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_ab31115cec491f1487cfbf4182563dea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_00560fc640c9638584e538f4b6cc7f77.setIcon(icon_ab31115cec491f1487cfbf4182563dea);
+        
+    
+        var popup_cc1386ee67e4fbba5e19311f15dba71c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_fa2a5d7937fdd72a2864912000ec5cd4 = $(`<div id="html_fa2a5d7937fdd72a2864912000ec5cd4" style="width: 100.0%; height: 100.0%;"><b>Forma Pasta Factory</b><br>Food<br>14 Bedford Ave, Brooklyn, NY 11222</div>`)[0];
+                popup_cc1386ee67e4fbba5e19311f15dba71c.setContent(html_fa2a5d7937fdd72a2864912000ec5cd4);
+            
+        
+
+        marker_00560fc640c9638584e538f4b6cc7f77.bindPopup(popup_cc1386ee67e4fbba5e19311f15dba71c)
+        ;
+
+        
+    
+    
+            marker_00560fc640c9638584e538f4b6cc7f77.bindTooltip(
+                `<div>
+                     Forma Pasta Factory
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d56baf70efd407dfbfeec49e5cbc261c = L.marker(
+                [40.7227175, -73.9961473],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_837bd0d5dfd6bbe00719eab51da69723 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d56baf70efd407dfbfeec49e5cbc261c.setIcon(icon_837bd0d5dfd6bbe00719eab51da69723);
+        
+    
+        var popup_4eb462243c8f89e1b23d19211e635657 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_015816d59b0ddb0884527d777a18dfa1 = $(`<div id="html_015816d59b0ddb0884527d777a18dfa1" style="width: 100.0%; height: 100.0%;"><b>Rubirosa</b><br>Food<br>235 Mulberry St, New York, NY 10012</div>`)[0];
+                popup_4eb462243c8f89e1b23d19211e635657.setContent(html_015816d59b0ddb0884527d777a18dfa1);
+            
+        
+
+        marker_d56baf70efd407dfbfeec49e5cbc261c.bindPopup(popup_4eb462243c8f89e1b23d19211e635657)
+        ;
+
+        
+    
+    
+            marker_d56baf70efd407dfbfeec49e5cbc261c.bindTooltip(
+                `<div>
+                     Rubirosa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_251804b1c294889c9db0a4a478f2e0ce = L.marker(
+                [40.7262725, -73.9946961],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_a28742e3099e6823964d1d76d3ebcbed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_251804b1c294889c9db0a4a478f2e0ce.setIcon(icon_a28742e3099e6823964d1d76d3ebcbed);
+        
+    
+        var popup_8516fc424f75be1d19cb786823775f93 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_521a7cf073df33ca0c4628d914314b79 = $(`<div id="html_521a7cf073df33ca0c4628d914314b79" style="width: 100.0%; height: 100.0%;"><b>LOS TACOS No.1</b><br>Food<br>340 Lafayette St, New York, NY 10012</div>`)[0];
+                popup_8516fc424f75be1d19cb786823775f93.setContent(html_521a7cf073df33ca0c4628d914314b79);
+            
+        
+
+        marker_251804b1c294889c9db0a4a478f2e0ce.bindPopup(popup_8516fc424f75be1d19cb786823775f93)
+        ;
+
+        
+    
+    
+            marker_251804b1c294889c9db0a4a478f2e0ce.bindTooltip(
+                `<div>
+                     LOS TACOS No.1
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_05ed2731560183e08eb37ac5c5b3bc82 = L.marker(
+                [40.7744711, -73.9507962],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_f21782b52e8f647b2403ce00f40a9f22 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_05ed2731560183e08eb37ac5c5b3bc82.setIcon(icon_f21782b52e8f647b2403ce00f40a9f22);
+        
+    
+        var popup_f7851f5a530ed081b7db8f445c0f2870 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_65156366d0ca57c21138cb2e3d3daa28 = $(`<div id="html_65156366d0ca57c21138cb2e3d3daa28" style="width: 100.0%; height: 100.0%;"><b>Zabb PuTawn</b><br>Food<br>1584 1st Ave, New York, NY 10028<br>⭐ FAVORITE</div>`)[0];
+                popup_f7851f5a530ed081b7db8f445c0f2870.setContent(html_65156366d0ca57c21138cb2e3d3daa28);
+            
+        
+
+        marker_05ed2731560183e08eb37ac5c5b3bc82.bindPopup(popup_f7851f5a530ed081b7db8f445c0f2870)
+        ;
+
+        
+    
+    
+            marker_05ed2731560183e08eb37ac5c5b3bc82.bindTooltip(
+                `<div>
+                     Zabb PuTawn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a547c6f8b6faafbced0899a5cc717c18 = L.marker(
+                [40.7629546, -73.9765106],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_90e90298d48f2a4b6b2bcad7d9bb7eac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a547c6f8b6faafbced0899a5cc717c18.setIcon(icon_90e90298d48f2a4b6b2bcad7d9bb7eac);
+        
+    
+        var popup_23cedac7163a259cd13161a4d3542f1e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_8269324b3dab37d392abf6366375bdf7 = $(`<div id="html_8269324b3dab37d392abf6366375bdf7" style="width: 100.0%; height: 100.0%;"><b>Blue Willow</b><br>Food<br>40 W 56th St, New York, NY 10019</div>`)[0];
+                popup_23cedac7163a259cd13161a4d3542f1e.setContent(html_8269324b3dab37d392abf6366375bdf7);
+            
+        
+
+        marker_a547c6f8b6faafbced0899a5cc717c18.bindPopup(popup_23cedac7163a259cd13161a4d3542f1e)
+        ;
+
+        
+    
+    
+            marker_a547c6f8b6faafbced0899a5cc717c18.bindTooltip(
+                `<div>
+                     Blue Willow
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6052f9896160c52ce4c907a488709527 = L.marker(
+                [40.7634876, -73.9892547],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_6df8bec1d4b9ba1f2b43872da01a4322 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_6052f9896160c52ce4c907a488709527.setIcon(icon_6df8bec1d4b9ba1f2b43872da01a4322);
+        
+    
+        var popup_6933276303973756a8ba3b8fdd01677b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_3dc8211da1940e0792e0500b2191f7f0 = $(`<div id="html_3dc8211da1940e0792e0500b2191f7f0" style="width: 100.0%; height: 100.0%;"><b>omakase by korami</b><br>Food<br>400 W 50th St, New York, NY 10019</div>`)[0];
+                popup_6933276303973756a8ba3b8fdd01677b.setContent(html_3dc8211da1940e0792e0500b2191f7f0);
+            
+        
+
+        marker_6052f9896160c52ce4c907a488709527.bindPopup(popup_6933276303973756a8ba3b8fdd01677b)
+        ;
+
+        
+    
+    
+            marker_6052f9896160c52ce4c907a488709527.bindTooltip(
+                `<div>
+                     omakase by korami
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1921ab5ca004f6f649d1ca453f53ae55 = L.marker(
+                [40.7623478, -73.9864652],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_1ef97d2bb82c4f180315413a54131ed7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_1921ab5ca004f6f649d1ca453f53ae55.setIcon(icon_1ef97d2bb82c4f180315413a54131ed7);
+        
+    
+        var popup_e8a58e9a16e42aa0b45e02346e835c49 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0e6662de38adbab995e717158a426e68 = $(`<div id="html_0e6662de38adbab995e717158a426e68" style="width: 100.0%; height: 100.0%;"><b>The Blue Dog</b><br>Food<br>308 W 50th St, New York, NY 10019</div>`)[0];
+                popup_e8a58e9a16e42aa0b45e02346e835c49.setContent(html_0e6662de38adbab995e717158a426e68);
+            
+        
+
+        marker_1921ab5ca004f6f649d1ca453f53ae55.bindPopup(popup_e8a58e9a16e42aa0b45e02346e835c49)
+        ;
+
+        
+    
+    
+            marker_1921ab5ca004f6f649d1ca453f53ae55.bindTooltip(
+                `<div>
+                     The Blue Dog
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_207b391d5832b12b2a163cde4659a310 = L.marker(
+                [40.6641761, -73.931553],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_4e9364c4c00c48e0c15b249ffcf4cb28 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_207b391d5832b12b2a163cde4659a310.setIcon(icon_4e9364c4c00c48e0c15b249ffcf4cb28);
+        
+    
+        var popup_42a6a7dad25e5d68f7f41d602c402e0e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_efe9f57dd8aa248dbe1967ac751e468c = $(`<div id="html_efe9f57dd8aa248dbe1967ac751e468c" style="width: 100.0%; height: 100.0%;"><b>Organic Love</b><br>Food<br>313A Utica Ave, Brooklyn, NY 11213</div>`)[0];
+                popup_42a6a7dad25e5d68f7f41d602c402e0e.setContent(html_efe9f57dd8aa248dbe1967ac751e468c);
+            
+        
+
+        marker_207b391d5832b12b2a163cde4659a310.bindPopup(popup_42a6a7dad25e5d68f7f41d602c402e0e)
+        ;
+
+        
+    
+    
+            marker_207b391d5832b12b2a163cde4659a310.bindTooltip(
+                `<div>
+                     Organic Love
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_45946f0ac1216c60f2365709e86d759c = L.marker(
+                [40.7285014, -73.9842721],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_f7e9ec94a49ed2595ba6eabecec7a1bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_45946f0ac1216c60f2365709e86d759c.setIcon(icon_f7e9ec94a49ed2595ba6eabecec7a1bb);
+        
+    
+        var popup_7232e645d2bc17aa13790cc40c45b686 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_acc7b8752a08edfc5bedcb1e56e1dd72 = $(`<div id="html_acc7b8752a08edfc5bedcb1e56e1dd72" style="width: 100.0%; height: 100.0%;"><b>Fancy Juice</b><br>Food<br>160 1st Ave, New York, NY 10003<br>⭐ FAVORITE</div>`)[0];
+                popup_7232e645d2bc17aa13790cc40c45b686.setContent(html_acc7b8752a08edfc5bedcb1e56e1dd72);
+            
+        
+
+        marker_45946f0ac1216c60f2365709e86d759c.bindPopup(popup_7232e645d2bc17aa13790cc40c45b686)
+        ;
+
+        
+    
+    
+            marker_45946f0ac1216c60f2365709e86d759c.bindTooltip(
+                `<div>
+                     Fancy Juice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_eea4942bc78b2a0eef0d031b63ef4fd5 = L.marker(
+                [40.6772847, -73.9634099],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_94b795f243653bb824bb0800a794efd4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_eea4942bc78b2a0eef0d031b63ef4fd5.setIcon(icon_94b795f243653bb824bb0800a794efd4);
+        
+    
+        var popup_137d3e4fb7e8308f4954ecefe6a6b6a4 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_d8199ba0173f71f41b7f71da1c7d2d73 = $(`<div id="html_d8199ba0173f71f41b7f71da1c7d2d73" style="width: 100.0%; height: 100.0%;"><b>Stocked</b><br>Food<br>663 Washington Ave, Brooklyn, NY 11238<br>⭐ FAVORITE</div>`)[0];
+                popup_137d3e4fb7e8308f4954ecefe6a6b6a4.setContent(html_d8199ba0173f71f41b7f71da1c7d2d73);
+            
+        
+
+        marker_eea4942bc78b2a0eef0d031b63ef4fd5.bindPopup(popup_137d3e4fb7e8308f4954ecefe6a6b6a4)
+        ;
+
+        
+    
+    
+            marker_eea4942bc78b2a0eef0d031b63ef4fd5.bindTooltip(
+                `<div>
+                     Stocked
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4111ace8eb822492960521314e3cdcb3 = L.marker(
+                [40.729071, -73.9856126],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_41bbe98e6f7dabd0113ad1645ca59a22 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_4111ace8eb822492960521314e3cdcb3.setIcon(icon_41bbe98e6f7dabd0113ad1645ca59a22);
+        
+    
+        var popup_87c82298fe0ec288dc968d5716454e11 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_557977cac756773ad9a8849c71c05ace = $(`<div id="html_557977cac756773ad9a8849c71c05ace" style="width: 100.0%; height: 100.0%;"><b>Hard to Explain</b><br>Nightlife<br>224 E 10th St, New York, NY 10003</div>`)[0];
+                popup_87c82298fe0ec288dc968d5716454e11.setContent(html_557977cac756773ad9a8849c71c05ace);
+            
+        
+
+        marker_4111ace8eb822492960521314e3cdcb3.bindPopup(popup_87c82298fe0ec288dc968d5716454e11)
+        ;
+
+        
+    
+    
+            marker_4111ace8eb822492960521314e3cdcb3.bindTooltip(
+                `<div>
+                     Hard to Explain
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e9018b3db8665748f4dee3d3f5227313 = L.marker(
+                [40.7130489, -73.9657751],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_dc6fb82dae9de224499a2024b82866fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_e9018b3db8665748f4dee3d3f5227313.setIcon(icon_dc6fb82dae9de224499a2024b82866fe);
+        
+    
+        var popup_b3df22700027525fbfa6ccdf5b78ee5b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_2f73dcdbeced4e0623ff84fff061b13d = $(`<div id="html_2f73dcdbeced4e0623ff84fff061b13d" style="width: 100.0%; height: 100.0%;"><b>Arlo Williamsburg</b><br>Nightlife<br>96 Wythe Ave, Brooklyn, NY 11249</div>`)[0];
+                popup_b3df22700027525fbfa6ccdf5b78ee5b.setContent(html_2f73dcdbeced4e0623ff84fff061b13d);
+            
+        
+
+        marker_e9018b3db8665748f4dee3d3f5227313.bindPopup(popup_b3df22700027525fbfa6ccdf5b78ee5b)
+        ;
+
+        
+    
+    
+            marker_e9018b3db8665748f4dee3d3f5227313.bindTooltip(
+                `<div>
+                     Arlo Williamsburg
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3c2a7d7f86ab8e4bcb412200411c418 = L.marker(
+                [40.7258564, -73.9833298],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_d6088f94fb5dc21159a0d688e4ea9671 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_b3c2a7d7f86ab8e4bcb412200411c418.setIcon(icon_d6088f94fb5dc21159a0d688e4ea9671);
+        
+    
+        var popup_10ddf2ec38f9fd53c025e171fef29dd0 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ffeb1ce355425af7c69f86b6214b9f68 = $(`<div id="html_ffeb1ce355425af7c69f86b6214b9f68" style="width: 100.0%; height: 100.0%;"><b>Lovers of Today</b><br>Nightlife<br>132 E 7th St, New York, NY 10009</div>`)[0];
+                popup_10ddf2ec38f9fd53c025e171fef29dd0.setContent(html_ffeb1ce355425af7c69f86b6214b9f68);
+            
+        
+
+        marker_b3c2a7d7f86ab8e4bcb412200411c418.bindPopup(popup_10ddf2ec38f9fd53c025e171fef29dd0)
+        ;
+
+        
+    
+    
+            marker_b3c2a7d7f86ab8e4bcb412200411c418.bindTooltip(
+                `<div>
+                     Lovers of Today
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f6e35ed85cbf2ecfad86473d617da05d = L.marker(
+                [40.6821674, -73.9863886],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_d7afdd8e28e7f91a7fd614b60958a15e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_f6e35ed85cbf2ecfad86473d617da05d.setIcon(icon_d7afdd8e28e7f91a7fd614b60958a15e);
+        
+    
+        var popup_10b77941516b02a75b18f92df1740b03 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_75c1179c6d1b898854c757c81ebe8529 = $(`<div id="html_75c1179c6d1b898854c757c81ebe8529" style="width: 100.0%; height: 100.0%;"><b>Public Records</b><br>Nightlife<br>233 Butler St, Brooklyn, NY 11217</div>`)[0];
+                popup_10b77941516b02a75b18f92df1740b03.setContent(html_75c1179c6d1b898854c757c81ebe8529);
+            
+        
+
+        marker_f6e35ed85cbf2ecfad86473d617da05d.bindPopup(popup_10b77941516b02a75b18f92df1740b03)
+        ;
+
+        
+    
+    
+            marker_f6e35ed85cbf2ecfad86473d617da05d.bindTooltip(
+                `<div>
+                     Public Records
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4dd183d05ce064727f20ea9a13ec4325 = L.marker(
+                [40.6983825, -73.9726875],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_accaff5ae59e6f99b2ff9254a4a4b4f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_4dd183d05ce064727f20ea9a13ec4325.setIcon(icon_accaff5ae59e6f99b2ff9254a4a4b4f8);
+        
+    
+        var popup_98831c0a34eb1ece73f12538c49f8e2c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_201afda754003927076c7538fa9ac1a3 = $(`<div id="html_201afda754003927076c7538fa9ac1a3" style="width: 100.0%; height: 100.0%;"><b>Brooklyn Storehouse</b><br>Nightlife<br>63 Flushing Ave, Brooklyn, NY 11205<br>⭐ FAVORITE</div>`)[0];
+                popup_98831c0a34eb1ece73f12538c49f8e2c.setContent(html_201afda754003927076c7538fa9ac1a3);
+            
+        
+
+        marker_4dd183d05ce064727f20ea9a13ec4325.bindPopup(popup_98831c0a34eb1ece73f12538c49f8e2c)
+        ;
+
+        
+    
+    
+            marker_4dd183d05ce064727f20ea9a13ec4325.bindTooltip(
+                `<div>
+                     Brooklyn Storehouse
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5b3fc1b51961946a4636a9bbb997880d = L.marker(
+                [40.7230653, -73.9920127],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_a2a748c031d8bb389c4e80896948b51b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_5b3fc1b51961946a4636a9bbb997880d.setIcon(icon_a2a748c031d8bb389c4e80896948b51b);
+        
+    
+        var popup_cd19decd0496171fdb01929d4a62749d = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_332d288d635a2dc8df570eccc323b4f6 = $(`<div id="html_332d288d635a2dc8df570eccc323b4f6" style="width: 100.0%; height: 100.0%;"><b>Public Hotel</b><br>Nightlife<br>215 Chrystie St, New York, NY 10002</div>`)[0];
+                popup_cd19decd0496171fdb01929d4a62749d.setContent(html_332d288d635a2dc8df570eccc323b4f6);
+            
+        
+
+        marker_5b3fc1b51961946a4636a9bbb997880d.bindPopup(popup_cd19decd0496171fdb01929d4a62749d)
+        ;
+
+        
+    
+    
+            marker_5b3fc1b51961946a4636a9bbb997880d.bindTooltip(
+                `<div>
+                     Public Hotel
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d85f53f1895d191a4f6e6a69f0eeb38 = L.marker(
+                [40.7794396, -73.9633825],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_77faee99739c59b9d4207737f573ea55 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7d85f53f1895d191a4f6e6a69f0eeb38.setIcon(icon_77faee99739c59b9d4207737f573ea55);
+        
+    
+        var popup_0c7e9ddbb1be25b2e22737b6e29c59f5 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_04949ef02a429277ac9f4f950b164c39 = $(`<div id="html_04949ef02a429277ac9f4f950b164c39" style="width: 100.0%; height: 100.0%;"><b>The Met</b><br>Activities<br>1000 5th Ave, New York, NY 10028</div>`)[0];
+                popup_0c7e9ddbb1be25b2e22737b6e29c59f5.setContent(html_04949ef02a429277ac9f4f950b164c39);
+            
+        
+
+        marker_7d85f53f1895d191a4f6e6a69f0eeb38.bindPopup(popup_0c7e9ddbb1be25b2e22737b6e29c59f5)
+        ;
+
+        
+    
+    
+            marker_7d85f53f1895d191a4f6e6a69f0eeb38.bindTooltip(
+                `<div>
+                     The Met
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dddb87a05af7c373966ec0980dbd7a43 = L.marker(
+                [40.7280672, -73.9875942],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_18c748dcda99220ed37aec3e2add2b25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_dddb87a05af7c373966ec0980dbd7a43.setIcon(icon_18c748dcda99220ed37aec3e2add2b25);
+        
+    
+        var popup_1302e2c28af0b3dfbf272ac543e5930a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_526be7b0c15ff9b26eff9071c2132fc2 = $(`<div id="html_526be7b0c15ff9b26eff9071c2132fc2" style="width: 100.0%; height: 100.0%;"><b>Crossroads Trading</b><br>Activities<br>122 2nd Ave, New York, NY 10003<br>⭐ FAVORITE</div>`)[0];
+                popup_1302e2c28af0b3dfbf272ac543e5930a.setContent(html_526be7b0c15ff9b26eff9071c2132fc2);
+            
+        
+
+        marker_dddb87a05af7c373966ec0980dbd7a43.bindPopup(popup_1302e2c28af0b3dfbf272ac543e5930a)
+        ;
+
+        
+    
+    
+            marker_dddb87a05af7c373966ec0980dbd7a43.bindTooltip(
+                `<div>
+                     Crossroads Trading
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c62fc1b9e10eeeb7363e88e9c489c8b4 = L.marker(
+                [40.618861, -73.9140603],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_75b9aa85cdb95a45ea88085c3570b991 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_c62fc1b9e10eeeb7363e88e9c489c8b4.setIcon(icon_75b9aa85cdb95a45ea88085c3570b991);
+        
+    
+        var popup_3ba1b598c5273d2c48f39c0a3e3ccaa3 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_cc759fce1f4b116a8a8a5122fb1444f5 = $(`<div id="html_cc759fce1f4b116a8a8a5122fb1444f5" style="width: 100.0%; height: 100.0%;"><b>Central Park</b><br>Activities<br>1802 E 65th St, New York, NY 10065</div>`)[0];
+                popup_3ba1b598c5273d2c48f39c0a3e3ccaa3.setContent(html_cc759fce1f4b116a8a8a5122fb1444f5);
+            
+        
+
+        marker_c62fc1b9e10eeeb7363e88e9c489c8b4.bindPopup(popup_3ba1b598c5273d2c48f39c0a3e3ccaa3)
+        ;
+
+        
+    
+    
+            marker_c62fc1b9e10eeeb7363e88e9c489c8b4.bindTooltip(
+                `<div>
+                     Central Park
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2dbac14edb30b66f54fd850c60d388df = L.marker(
+                [40.6772262, -73.9801829],
+                {}
+            ).addTo(map_6c4fe925001c91c97f7eb6d1db3555cc);
+        
+    
+            var icon_52e73a33cc10df9a70ba63511a1d66dd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2dbac14edb30b66f54fd850c60d388df.setIcon(icon_52e73a33cc10df9a70ba63511a1d66dd);
+        
+    
+        var popup_5e84c9c9f206af20c187357302992b5f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_16bf2c92b9b75fec55ed6ae13f8a0c75 = $(`<div id="html_16bf2c92b9b75fec55ed6ae13f8a0c75" style="width: 100.0%; height: 100.0%;"><b>The Painted Pot </b><br>Activities<br>188 5th Ave, Brooklyn, NY 11217<br>⭐ FAVORITE</div>`)[0];
+                popup_5e84c9c9f206af20c187357302992b5f.setContent(html_16bf2c92b9b75fec55ed6ae13f8a0c75);
+            
+        
+
+        marker_2dbac14edb30b66f54fd850c60d388df.bindPopup(popup_5e84c9c9f206af20c187357302992b5f)
+        ;
+
+        
+    
+    
+            marker_2dbac14edb30b66f54fd850c60d388df.bindTooltip(
+                `<div>
+                     The Painted Pot 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

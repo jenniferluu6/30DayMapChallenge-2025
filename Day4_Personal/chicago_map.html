@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9595c4517989c2c944710f2b1b3828f7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 20px; right: 20px; 
+                background-color: white; 
+                border: 2px solid grey; 
+                border-radius: 5px;
+                padding: 10px; 
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+                z-index: 9999;
+                box-shadow: 2px 2px 6px rgba(0,0,0,0.3);">
+        <div style="margin-bottom: 8px; font-weight: bold;">Legend</div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: red;"></i> Food
+        </div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: purple;"></i> Nightlife
+        </div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: blue;"></i> Activities
+        </div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ccc;">
+            <i class="fa fa-star" style="color: gold;"></i> Favorite
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_9595c4517989c2c944710f2b1b3828f7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9595c4517989c2c944710f2b1b3828f7 = L.map(
+                "map_9595c4517989c2c944710f2b1b3828f7",
+                {
+                    center: [41.8781, -87.6298],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_91b8d45dbed79f78258e2121980ec3f2 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var marker_96b8c545114bf50d2b7f9fae95d286e8 = L.marker(
+                [41.9316473, -87.6576651],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_df86ee7d241ed8c941aa4a37ab5a2266 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_96b8c545114bf50d2b7f9fae95d286e8.setIcon(icon_df86ee7d241ed8c941aa4a37ab5a2266);
+        
+    
+        var popup_ac46c90813442d938e0274ac55e9c5a0 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f179eabdeaeae79b5aab9d2376c88290 = $(`<div id="html_f179eabdeaeae79b5aab9d2376c88290" style="width: 100.0%; height: 100.0%;"><b>Batter & Berries</b><br>Food<br>2748 N Lincoln Ave, Chicago, IL 60614<br>⭐ FAVORITE</div>`)[0];
+                popup_ac46c90813442d938e0274ac55e9c5a0.setContent(html_f179eabdeaeae79b5aab9d2376c88290);
+            
+        
+
+        marker_96b8c545114bf50d2b7f9fae95d286e8.bindPopup(popup_ac46c90813442d938e0274ac55e9c5a0)
+        ;
+
+        
+    
+    
+            marker_96b8c545114bf50d2b7f9fae95d286e8.bindTooltip(
+                `<div>
+                     Batter & Berries
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4446617c4618c4f46ae24d1b70706783 = L.marker(
+                [41.8909642, -87.6316624],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_a68517412718f26dde234f1b2b36bd88 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4446617c4618c4f46ae24d1b70706783.setIcon(icon_a68517412718f26dde234f1b2b36bd88);
+        
+    
+        var popup_45ed4f7eeab142a4dc9d0f3135f5544f = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_42f1c994d97c8c1ceaabf076305cafdc = $(`<div id="html_42f1c994d97c8c1ceaabf076305cafdc" style="width: 100.0%; height: 100.0%;"><b>Sunda</b><br>Food<br>110 W Illinois St, Chicago, IL 60654</div>`)[0];
+                popup_45ed4f7eeab142a4dc9d0f3135f5544f.setContent(html_42f1c994d97c8c1ceaabf076305cafdc);
+            
+        
+
+        marker_4446617c4618c4f46ae24d1b70706783.bindPopup(popup_45ed4f7eeab142a4dc9d0f3135f5544f)
+        ;
+
+        
+    
+    
+            marker_4446617c4618c4f46ae24d1b70706783.bindTooltip(
+                `<div>
+                     Sunda
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_00257e810147834f3e670868e8c8f277 = L.marker(
+                [41.8879861, -87.6304444],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_4ac8aa406df3d7f2d422c7e1a09e28a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_00257e810147834f3e670868e8c8f277.setIcon(icon_4ac8aa406df3d7f2d422c7e1a09e28a8);
+        
+    
+        var popup_3601322b3ab19fddf0bee74958fc072e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_2c3e586b4203af6dc22a81bca9b0e151 = $(`<div id="html_2c3e586b4203af6dc22a81bca9b0e151" style="width: 100.0%; height: 100.0%;"><b>Pizzeria Portofino</b><br>Food<br>317 N Clark St, Chicago, IL 60654</div>`)[0];
+                popup_3601322b3ab19fddf0bee74958fc072e.setContent(html_2c3e586b4203af6dc22a81bca9b0e151);
+            
+        
+
+        marker_00257e810147834f3e670868e8c8f277.bindPopup(popup_3601322b3ab19fddf0bee74958fc072e)
+        ;
+
+        
+    
+    
+            marker_00257e810147834f3e670868e8c8f277.bindTooltip(
+                `<div>
+                     Pizzeria Portofino
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2e2b3191588679c6fd9ad5576f6afb85 = L.marker(
+                [41.9371747, -87.6681016],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_4436a7d72266bdeab625e95500bfd307 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_2e2b3191588679c6fd9ad5576f6afb85.setIcon(icon_4436a7d72266bdeab625e95500bfd307);
+        
+    
+        var popup_615de9c0fa61d685f940b4c29a991175 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_075f47019f14fcd142f62a0ce778b307 = $(`<div id="html_075f47019f14fcd142f62a0ce778b307" style="width: 100.0%; height: 100.0%;"><b>The Art of Pizza</b><br>Food<br>3033 N Ashland Ave, Chicago, IL 60657</div>`)[0];
+                popup_615de9c0fa61d685f940b4c29a991175.setContent(html_075f47019f14fcd142f62a0ce778b307);
+            
+        
+
+        marker_2e2b3191588679c6fd9ad5576f6afb85.bindPopup(popup_615de9c0fa61d685f940b4c29a991175)
+        ;
+
+        
+    
+    
+            marker_2e2b3191588679c6fd9ad5576f6afb85.bindTooltip(
+                `<div>
+                     The Art of Pizza
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0b0cce844e40a2636c8e138c0f6e86f = L.marker(
+                [41.8904264, -87.6307577],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_db00a875e826e470e99bd2eaa0c1bace = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_e0b0cce844e40a2636c8e138c0f6e86f.setIcon(icon_db00a875e826e470e99bd2eaa0c1bace);
+        
+    
+        var popup_a30534a57932dee3da4892e95503f4b7 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_c4ad0757fdbcdffc238751c17b1859c1 = $(`<div id="html_c4ad0757fdbcdffc238751c17b1859c1" style="width: 100.0%; height: 100.0%;"><b>Lil' Ba-Ba-Reeba!</b><br>Food<br>441 N Clark St, Chicago, IL 60654<br>⭐ FAVORITE</div>`)[0];
+                popup_a30534a57932dee3da4892e95503f4b7.setContent(html_c4ad0757fdbcdffc238751c17b1859c1);
+            
+        
+
+        marker_e0b0cce844e40a2636c8e138c0f6e86f.bindPopup(popup_a30534a57932dee3da4892e95503f4b7)
+        ;
+
+        
+    
+    
+            marker_e0b0cce844e40a2636c8e138c0f6e86f.bindTooltip(
+                `<div>
+                     Lil' Ba-Ba-Reeba!
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_51c130332337ba8dd88c4feebc2cc9c4 = L.marker(
+                [41.8934348, -87.6283059],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_24f979e5a7fb5a340b7874125d2e5ca7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_51c130332337ba8dd88c4feebc2cc9c4.setIcon(icon_24f979e5a7fb5a340b7874125d2e5ca7);
+        
+    
+        var popup_caaaca217bb09b50cf8287a8d9214478 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_c290d2c90f25e7f838ef4bcee5a6227d = $(`<div id="html_c290d2c90f25e7f838ef4bcee5a6227d" style="width: 100.0%; height: 100.0%;"><b>Quartino Ristorante</b><br>Food<br>626 N State St, Chicago, IL 60654</div>`)[0];
+                popup_caaaca217bb09b50cf8287a8d9214478.setContent(html_c290d2c90f25e7f838ef4bcee5a6227d);
+            
+        
+
+        marker_51c130332337ba8dd88c4feebc2cc9c4.bindPopup(popup_caaaca217bb09b50cf8287a8d9214478)
+        ;
+
+        
+    
+    
+            marker_51c130332337ba8dd88c4feebc2cc9c4.bindTooltip(
+                `<div>
+                     Quartino Ristorante
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7b6221d060ca2912dc9038751840393d = L.marker(
+                [41.8579759, -87.6655859],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_86534663b353df0035bc8744c86789a2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_7b6221d060ca2912dc9038751840393d.setIcon(icon_86534663b353df0035bc8744c86789a2);
+        
+    
+        var popup_3084aee194f1c5e5e03eadc4ccaa7949 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_4d8cec540393baff7e18c18ad697f82f = $(`<div id="html_4d8cec540393baff7e18c18ad697f82f" style="width: 100.0%; height: 100.0%;"><b>Los Comales</b><br>Food<br>1544 W 18th St, Chicago, IL 60608</div>`)[0];
+                popup_3084aee194f1c5e5e03eadc4ccaa7949.setContent(html_4d8cec540393baff7e18c18ad697f82f);
+            
+        
+
+        marker_7b6221d060ca2912dc9038751840393d.bindPopup(popup_3084aee194f1c5e5e03eadc4ccaa7949)
+        ;
+
+        
+    
+    
+            marker_7b6221d060ca2912dc9038751840393d.bindTooltip(
+                `<div>
+                     Los Comales
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_eefda0f404ca666224ff762dc9a5ce11 = L.marker(
+                [41.8549161, -87.6321346],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_810273987654b0295f4dd02eb218f27a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_eefda0f404ca666224ff762dc9a5ce11.setIcon(icon_810273987654b0295f4dd02eb218f27a);
+        
+    
+        var popup_5067da9da2834f5fbf41b0ea4e468a41 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_2a14ae652c43906953a8dd4fb1f7fc38 = $(`<div id="html_2a14ae652c43906953a8dd4fb1f7fc38" style="width: 100.0%; height: 100.0%;"><b>Qing Xiang Yuan Dumplings</b><br>Food<br>2002 S Wentworth Ave, Chicago, IL 60616</div>`)[0];
+                popup_5067da9da2834f5fbf41b0ea4e468a41.setContent(html_2a14ae652c43906953a8dd4fb1f7fc38);
+            
+        
+
+        marker_eefda0f404ca666224ff762dc9a5ce11.bindPopup(popup_5067da9da2834f5fbf41b0ea4e468a41)
+        ;
+
+        
+    
+    
+            marker_eefda0f404ca666224ff762dc9a5ce11.bindTooltip(
+                `<div>
+                     Qing Xiang Yuan Dumplings
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5e9ddae798035b731466bb1fc4a5a4af = L.marker(
+                [41.8996823, -87.6756502],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_0316cd3abff58113fce379b5c536ff32 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_5e9ddae798035b731466bb1fc4a5a4af.setIcon(icon_0316cd3abff58113fce379b5c536ff32);
+        
+    
+        var popup_5a627c71ca81056145a084526066bd91 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_321dabde6d14332cc3033b92efb8002d = $(`<div id="html_321dabde6d14332cc3033b92efb8002d" style="width: 100.0%; height: 100.0%;"><b>Kasama</b><br>Food<br>1001 N Winchester Ave, Chicago, IL 60622</div>`)[0];
+                popup_5a627c71ca81056145a084526066bd91.setContent(html_321dabde6d14332cc3033b92efb8002d);
+            
+        
+
+        marker_5e9ddae798035b731466bb1fc4a5a4af.bindPopup(popup_5a627c71ca81056145a084526066bd91)
+        ;
+
+        
+    
+    
+            marker_5e9ddae798035b731466bb1fc4a5a4af.bindTooltip(
+                `<div>
+                     Kasama
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_93d4e50c597b1db57fd0c9ad065649cd = L.marker(
+                [41.9379629, -87.6537938],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_4634889d3b955a90dbd06d385ccb5ca8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_93d4e50c597b1db57fd0c9ad065649cd.setIcon(icon_4634889d3b955a90dbd06d385ccb5ca8);
+        
+    
+        var popup_959db99fb594e70ad86a04891ad9409c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_1d72e267a9571698f272d906dd1dc0da = $(`<div id="html_1d72e267a9571698f272d906dd1dc0da" style="width: 100.0%; height: 100.0%;"><b>Oberweis</b><br>Food<br>3055 N Sheffield Ave, Chicago, IL 60657</div>`)[0];
+                popup_959db99fb594e70ad86a04891ad9409c.setContent(html_1d72e267a9571698f272d906dd1dc0da);
+            
+        
+
+        marker_93d4e50c597b1db57fd0c9ad065649cd.bindPopup(popup_959db99fb594e70ad86a04891ad9409c)
+        ;
+
+        
+    
+    
+            marker_93d4e50c597b1db57fd0c9ad065649cd.bindTooltip(
+                `<div>
+                     Oberweis
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9217fcec20e53b3fd53ed678c16c260b = L.marker(
+                [41.9398268, -87.6519964],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_6d7fef745659c41f02df9bac52cb09e4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_9217fcec20e53b3fd53ed678c16c260b.setIcon(icon_6d7fef745659c41f02df9bac52cb09e4);
+        
+    
+        var popup_0860c9b805f9e055b7f10d25f610c2b4 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_98cd2695718c27e361752e117006456d = $(`<div id="html_98cd2695718c27e361752e117006456d" style="width: 100.0%; height: 100.0%;"><b>Ann Sathers</b><br>Food<br>909 W Belmont Ave, Chicago, IL 60657</div>`)[0];
+                popup_0860c9b805f9e055b7f10d25f610c2b4.setContent(html_98cd2695718c27e361752e117006456d);
+            
+        
+
+        marker_9217fcec20e53b3fd53ed678c16c260b.bindPopup(popup_0860c9b805f9e055b7f10d25f610c2b4)
+        ;
+
+        
+    
+    
+            marker_9217fcec20e53b3fd53ed678c16c260b.bindTooltip(
+                `<div>
+                     Ann Sathers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f8e4026a0699673b9a9d4f9e973e3661 = L.marker(
+                [41.8696717, -87.6537554],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_2bde5a4cb91d9be17ee9df97a39ad1f2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f8e4026a0699673b9a9d4f9e973e3661.setIcon(icon_2bde5a4cb91d9be17ee9df97a39ad1f2);
+        
+    
+        var popup_1523459bb5142390613f1ee59461b4d9 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_95d8b891d61feaadf201a58689fbb147 = $(`<div id="html_95d8b891d61feaadf201a58689fbb147" style="width: 100.0%; height: 100.0%;"><b>Mario's Italian Lemonade</b><br>Food<br>1068 W Taylor St, Chicago, IL 60607<br>⭐ FAVORITE</div>`)[0];
+                popup_1523459bb5142390613f1ee59461b4d9.setContent(html_95d8b891d61feaadf201a58689fbb147);
+            
+        
+
+        marker_f8e4026a0699673b9a9d4f9e973e3661.bindPopup(popup_1523459bb5142390613f1ee59461b4d9)
+        ;
+
+        
+    
+    
+            marker_f8e4026a0699673b9a9d4f9e973e3661.bindTooltip(
+                `<div>
+                     Mario's Italian Lemonade
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a976ee3f16e585c110d22eb7e84fea5d = L.marker(
+                [41.8910809, -87.647297],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_f084b86c1224bddf1fdb25c0ff0af8c6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_a976ee3f16e585c110d22eb7e84fea5d.setIcon(icon_f084b86c1224bddf1fdb25c0ff0af8c6);
+        
+    
+        var popup_f4f67e1a3562185e082e420b30a3d7b1 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_80629f63b348661ade41141b118a5e03 = $(`<div id="html_80629f63b348661ade41141b118a5e03" style="width: 100.0%; height: 100.0%;"><b>Pearl Club</b><br>Nightlife<br>495 N Milwaukee Ave, Chicago, IL 60654</div>`)[0];
+                popup_f4f67e1a3562185e082e420b30a3d7b1.setContent(html_80629f63b348661ade41141b118a5e03);
+            
+        
+
+        marker_a976ee3f16e585c110d22eb7e84fea5d.bindPopup(popup_f4f67e1a3562185e082e420b30a3d7b1)
+        ;
+
+        
+    
+    
+            marker_a976ee3f16e585c110d22eb7e84fea5d.bindTooltip(
+                `<div>
+                     Pearl Club
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9d4c5269d814e4a2659ea6dd62013599 = L.marker(
+                [41.8897924, -87.6307013],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_59e0406a811ee1d98134a2c8620183e0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_9d4c5269d814e4a2659ea6dd62013599.setIcon(icon_59e0406a811ee1d98134a2c8620183e0);
+        
+    
+        var popup_cccca9503e75e3f35786c5a74d8f50dd = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_1c99deadcc4104b3b0cfaad74af8d338 = $(`<div id="html_1c99deadcc4104b3b0cfaad74af8d338" style="width: 100.0%; height: 100.0%;"><b>Three dots and a Dash</b><br>Nightlife<br>435 N Clark St, Chicago, IL 60654</div>`)[0];
+                popup_cccca9503e75e3f35786c5a74d8f50dd.setContent(html_1c99deadcc4104b3b0cfaad74af8d338);
+            
+        
+
+        marker_9d4c5269d814e4a2659ea6dd62013599.bindPopup(popup_cccca9503e75e3f35786c5a74d8f50dd)
+        ;
+
+        
+    
+    
+            marker_9d4c5269d814e4a2659ea6dd62013599.bindTooltip(
+                `<div>
+                     Three dots and a Dash
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_da25cf5b6dc73a84ac2e227e31e5eb4b = L.marker(
+                [41.8872669, -87.6490322],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_c5eb2e68d2200d05381cc999a5509a91 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_da25cf5b6dc73a84ac2e227e31e5eb4b.setIcon(icon_c5eb2e68d2200d05381cc999a5509a91);
+        
+    
+        var popup_0bb667fa2678042b36200e853f7f9767 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_e5f50a4bdb1efe79221707e0aa30f7e1 = $(`<div id="html_e5f50a4bdb1efe79221707e0aa30f7e1" style="width: 100.0%; height: 100.0%;"><b>Punch Bowl Social</b><br>Nightlife<br>310 N Green St, Chicago, IL 60607</div>`)[0];
+                popup_0bb667fa2678042b36200e853f7f9767.setContent(html_e5f50a4bdb1efe79221707e0aa30f7e1);
+            
+        
+
+        marker_da25cf5b6dc73a84ac2e227e31e5eb4b.bindPopup(popup_0bb667fa2678042b36200e853f7f9767)
+        ;
+
+        
+    
+    
+            marker_da25cf5b6dc73a84ac2e227e31e5eb4b.bindTooltip(
+                `<div>
+                     Punch Bowl Social
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_98eedab4e38fbe5ab6a527595ccf3f1c = L.marker(
+                [41.886557, -87.649252],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_3e5edd819ec41de10a799cb24c167965 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_98eedab4e38fbe5ab6a527595ccf3f1c.setIcon(icon_3e5edd819ec41de10a799cb24c167965);
+        
+    
+        var popup_d698a0de832bf498f4e5d35f48d1273a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_3f38027b949269b1d2cca9cbe5e7f02c = $(`<div id="html_3f38027b949269b1d2cca9cbe5e7f02c" style="width: 100.0%; height: 100.0%;"><b>Emporium</b><br>Nightlife<br>839 W Fulton Market, Chicago, IL 60607</div>`)[0];
+                popup_d698a0de832bf498f4e5d35f48d1273a.setContent(html_3f38027b949269b1d2cca9cbe5e7f02c);
+            
+        
+
+        marker_98eedab4e38fbe5ab6a527595ccf3f1c.bindPopup(popup_d698a0de832bf498f4e5d35f48d1273a)
+        ;
+
+        
+    
+    
+            marker_98eedab4e38fbe5ab6a527595ccf3f1c.bindTooltip(
+                `<div>
+                     Emporium
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_537342e33f477146c5bd8588551912e2 = L.marker(
+                [41.889785, -87.6376935],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_2dcfc4e5887c29d39f1219949d2a5695 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_537342e33f477146c5bd8588551912e2.setIcon(icon_2dcfc4e5887c29d39f1219949d2a5695);
+        
+    
+        var popup_c4fbe7696ce342a4e7e9f93d99a8602a = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_1fc787fb96928792dab846b1db50658a = $(`<div id="html_1fc787fb96928792dab846b1db50658a" style="width: 100.0%; height: 100.0%;"><b>The Bassment</b><br>Nightlife<br>353 W Hubbard St, Chicago, IL 60654</div>`)[0];
+                popup_c4fbe7696ce342a4e7e9f93d99a8602a.setContent(html_1fc787fb96928792dab846b1db50658a);
+            
+        
+
+        marker_537342e33f477146c5bd8588551912e2.bindPopup(popup_c4fbe7696ce342a4e7e9f93d99a8602a)
+        ;
+
+        
+    
+    
+            marker_537342e33f477146c5bd8588551912e2.bindTooltip(
+                `<div>
+                     The Bassment
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0c22103febbf2007daf5f3b82e9ecfed = L.marker(
+                [41.8889514, -87.6332043],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_41d618a5f24f5ae0e5f482ce6adbf9f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_0c22103febbf2007daf5f3b82e9ecfed.setIcon(icon_41d618a5f24f5ae0e5f482ce6adbf9f8);
+        
+    
+        var popup_dde4f3d48e624150ec5d1717837815d9 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_dba32a1f698c09807a4f0850def0daa3 = $(`<div id="html_dba32a1f698c09807a4f0850def0daa3" style="width: 100.0%; height: 100.0%;"><b>Moe's</b><br>Nightlife<br>155 W Kinzie St, Chicago, IL 60654</div>`)[0];
+                popup_dde4f3d48e624150ec5d1717837815d9.setContent(html_dba32a1f698c09807a4f0850def0daa3);
+            
+        
+
+        marker_0c22103febbf2007daf5f3b82e9ecfed.bindPopup(popup_dde4f3d48e624150ec5d1717837815d9)
+        ;
+
+        
+    
+    
+            marker_0c22103febbf2007daf5f3b82e9ecfed.bindTooltip(
+                `<div>
+                     Moe's
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d60255c9c8a929cb055cb4e23b2aced3 = L.marker(
+                [41.8851218, -87.663743],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_6d3bb6c895ceeec49c6ea4f7ee7c270b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_d60255c9c8a929cb055cb4e23b2aced3.setIcon(icon_6d3bb6c895ceeec49c6ea4f7ee7c270b);
+        
+    
+        var popup_897a27322f051cb8a5dfcc01b0735808 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_6bc9637cc576fe72fb5f9ecca0964d82 = $(`<div id="html_6bc9637cc576fe72fb5f9ecca0964d82" style="width: 100.0%; height: 100.0%;"><b>The Mine</b><br>Nightlife<br>1431 W Lake St, Chicago, IL 60607</div>`)[0];
+                popup_897a27322f051cb8a5dfcc01b0735808.setContent(html_6bc9637cc576fe72fb5f9ecca0964d82);
+            
+        
+
+        marker_d60255c9c8a929cb055cb4e23b2aced3.bindPopup(popup_897a27322f051cb8a5dfcc01b0735808)
+        ;
+
+        
+    
+    
+            marker_d60255c9c8a929cb055cb4e23b2aced3.bindTooltip(
+                `<div>
+                     The Mine
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0a809d762872050f14fc0ea1f07783e5 = L.marker(
+                [41.879605, -87.6230716],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_aa417aff1696e312d36f1052daa0a2a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0a809d762872050f14fc0ea1f07783e5.setIcon(icon_aa417aff1696e312d36f1052daa0a2a3);
+        
+    
+        var popup_2f97e423b155c73e389daddf25a72c67 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_cf705acf889e6a3d986c1c142e2195aa = $(`<div id="html_cf705acf889e6a3d986c1c142e2195aa" style="width: 100.0%; height: 100.0%;"><b>The Art Institute of Chicago</b><br>Activities<br>111 S Michigan Ave, Chicago, IL 60603<br>⭐ FAVORITE</div>`)[0];
+                popup_2f97e423b155c73e389daddf25a72c67.setContent(html_cf705acf889e6a3d986c1c142e2195aa);
+            
+        
+
+        marker_0a809d762872050f14fc0ea1f07783e5.bindPopup(popup_2f97e423b155c73e389daddf25a72c67)
+        ;
+
+        
+    
+    
+            marker_0a809d762872050f14fc0ea1f07783e5.bindTooltip(
+                `<div>
+                     The Art Institute of Chicago
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aade9d82afa4e5221d2c441e27215444 = L.marker(
+                [41.9716729, -87.6683243],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_c3ceb41d1c2e88f9b796c81fbdbb6a3c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_aade9d82afa4e5221d2c441e27215444.setIcon(icon_c3ceb41d1c2e88f9b796c81fbdbb6a3c);
+        
+    
+        var popup_04bca2a81ec2bb7d47d99dd59df49444 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ecd141f35a590a4123846a267d83ec71 = $(`<div id="html_ecd141f35a590a4123846a267d83ec71" style="width: 100.0%; height: 100.0%;"><b>The Village Discount </b><br>Activities<br>4898 N Clark St, Chicago, IL 60640<br>⭐ FAVORITE</div>`)[0];
+                popup_04bca2a81ec2bb7d47d99dd59df49444.setContent(html_ecd141f35a590a4123846a267d83ec71);
+            
+        
+
+        marker_aade9d82afa4e5221d2c441e27215444.bindPopup(popup_04bca2a81ec2bb7d47d99dd59df49444)
+        ;
+
+        
+    
+    
+            marker_aade9d82afa4e5221d2c441e27215444.bindTooltip(
+                `<div>
+                     The Village Discount 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a64bae05b381b25fefecf7c9c26a5877 = L.marker(
+                [41.8868183, -87.6279794],
+                {}
+            ).addTo(map_9595c4517989c2c944710f2b1b3828f7);
+        
+    
+            var icon_5af52c93c0351d577ec159f4892a4dac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_a64bae05b381b25fefecf7c9c26a5877.setIcon(icon_5af52c93c0351d577ec159f4892a4dac);
+        
+    
+        var popup_4e59fda528ba1b607825e04778428bcc = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9d476adabe768942941a6a5fc7a5009a = $(`<div id="html_9d476adabe768942941a6a5fc7a5009a" style="width: 100.0%; height: 100.0%;"><b>River Walk</b><br>Activities<br>24 E Wacker Dr, Chicago, IL 60601<br>⭐ FAVORITE</div>`)[0];
+                popup_4e59fda528ba1b607825e04778428bcc.setContent(html_9d476adabe768942941a6a5fc7a5009a);
+            
+        
+
+        marker_a64bae05b381b25fefecf7c9c26a5877.bindPopup(popup_4e59fda528ba1b607825e04778428bcc)
+        ;
+
+        
+    
+    
+            marker_a64bae05b381b25fefecf7c9c26a5877.bindTooltip(
+                `<div>
+                     River Walk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

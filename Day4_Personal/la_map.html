@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e6a51fd158c016b45332b39ee02eda42 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 20px; right: 20px; 
+                background-color: white; 
+                border: 2px solid grey; 
+                border-radius: 5px;
+                padding: 10px; 
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+                z-index: 9999;
+                box-shadow: 2px 2px 6px rgba(0,0,0,0.3);">
+        <div style="margin-bottom: 8px; font-weight: bold;">Legend</div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: red;"></i> Food
+        </div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: purple;"></i> Nightlife
+        </div>
+        <div style="margin-bottom: 5px;">
+            <i class="fa fa-circle" style="color: blue;"></i> Activities
+        </div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ccc;">
+            <i class="fa fa-star" style="color: gold;"></i> Favorite
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_e6a51fd158c016b45332b39ee02eda42" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e6a51fd158c016b45332b39ee02eda42 = L.map(
+                "map_e6a51fd158c016b45332b39ee02eda42",
+                {
+                    center: [34.0522, -118.2437],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_edfd52eb82653db2345e1876528850cf = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var marker_da5bec70049bd2d4ec69914ae1ab4635 = L.marker(
+                [34.0634267, -118.2974959],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_d7b38eb8512e97acd371e9e3b7a83287 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_da5bec70049bd2d4ec69914ae1ab4635.setIcon(icon_d7b38eb8512e97acd371e9e3b7a83287);
+        
+    
+        var popup_c4ef1c6fb3ebb11d4cb2a1c04ead0407 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_5060c7838f2faaa7bcfd04da23ad3b45 = $(`<div id="html_5060c7838f2faaa7bcfd04da23ad3b45" style="width: 100.0%; height: 100.0%;"><b>Hangari Kalguksu</b><br>Food<br>3470 W 6th St, Los Angeles, CA 90020<br>⭐ FAVORITE</div>`)[0];
+                popup_c4ef1c6fb3ebb11d4cb2a1c04ead0407.setContent(html_5060c7838f2faaa7bcfd04da23ad3b45);
+            
+        
+
+        marker_da5bec70049bd2d4ec69914ae1ab4635.bindPopup(popup_c4ef1c6fb3ebb11d4cb2a1c04ead0407)
+        ;
+
+        
+    
+    
+            marker_da5bec70049bd2d4ec69914ae1ab4635.bindTooltip(
+                `<div>
+                     Hangari Kalguksu
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_82b7b18f63b6ac918f354adeed449068 = L.marker(
+                [34.059309, -118.308978],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_8d5bb6e343788b26ba572f19ba711e59 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_82b7b18f63b6ac918f354adeed449068.setIcon(icon_8d5bb6e343788b26ba572f19ba711e59);
+        
+    
+        var popup_a8211336b6abbd3399f0acdb03cc5f12 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_fc4cb20fb6946a69bbd3fa75b62c510b = $(`<div id="html_fc4cb20fb6946a69bbd3fa75b62c510b" style="width: 100.0%; height: 100.0%;"><b>Sun Nong Dan</b><br>Food<br>710 S Western Ave, Los Angeles, CA 90005</div>`)[0];
+                popup_a8211336b6abbd3399f0acdb03cc5f12.setContent(html_fc4cb20fb6946a69bbd3fa75b62c510b);
+            
+        
+
+        marker_82b7b18f63b6ac918f354adeed449068.bindPopup(popup_a8211336b6abbd3399f0acdb03cc5f12)
+        ;
+
+        
+    
+    
+            marker_82b7b18f63b6ac918f354adeed449068.bindTooltip(
+                `<div>
+                     Sun Nong Dan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb7c0c2ef4a88f93a1578619990086f5 = L.marker(
+                [34.0265698, -118.4269575],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_a0001082fff42a82efe55af6b93f1b54 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_fb7c0c2ef4a88f93a1578619990086f5.setIcon(icon_a0001082fff42a82efe55af6b93f1b54);
+        
+    
+        var popup_f1e75e0377b88e4f798e197c1fd0b8d6 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b3bba0f50e327396b8571320c32e800e = $(`<div id="html_b3bba0f50e327396b8571320c32e800e" style="width: 100.0%; height: 100.0%;"><b>Brother's Cousins</b><br>Food<br>3118 S Sepulveda Blvd, Los Angeles, CA 90034</div>`)[0];
+                popup_f1e75e0377b88e4f798e197c1fd0b8d6.setContent(html_b3bba0f50e327396b8571320c32e800e);
+            
+        
+
+        marker_fb7c0c2ef4a88f93a1578619990086f5.bindPopup(popup_f1e75e0377b88e4f798e197c1fd0b8d6)
+        ;
+
+        
+    
+    
+            marker_fb7c0c2ef4a88f93a1578619990086f5.bindTooltip(
+                `<div>
+                     Brother's Cousins
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_473ed6d1b1be6e20a8fbb94d83c46d6a = L.marker(
+                [34.09052, -118.277145],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_ff9b02d08c5040555cb022bb6c68371e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_473ed6d1b1be6e20a8fbb94d83c46d6a.setIcon(icon_ff9b02d08c5040555cb022bb6c68371e);
+        
+    
+        var popup_8e1da9d9e0484330937a6131226b1cac = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_43d9e1c4e9ac2ca66ecfe888aab708a3 = $(`<div id="html_43d9e1c4e9ac2ca66ecfe888aab708a3" style="width: 100.0%; height: 100.0%;"><b>Pine and Crane</b><br>Food<br>1521 Griffith Park Blvd, Los Angeles, CA 90026</div>`)[0];
+                popup_8e1da9d9e0484330937a6131226b1cac.setContent(html_43d9e1c4e9ac2ca66ecfe888aab708a3);
+            
+        
+
+        marker_473ed6d1b1be6e20a8fbb94d83c46d6a.bindPopup(popup_8e1da9d9e0484330937a6131226b1cac)
+        ;
+
+        
+    
+    
+            marker_473ed6d1b1be6e20a8fbb94d83c46d6a.bindTooltip(
+                `<div>
+                     Pine and Crane
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0f9b091130d580a84b9fea4a1b6b68ea = L.marker(
+                [34.0623543, -118.4480307],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_a2a2ae5cacd82d48c4b3872565085891 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0f9b091130d580a84b9fea4a1b6b68ea.setIcon(icon_a2a2ae5cacd82d48c4b3872565085891);
+        
+    
+        var popup_7c43ba2831dcf98d45b04d131aac5c20 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_1afcb122170081134bd259e01045a8a9 = $(`<div id="html_1afcb122170081134bd259e01045a8a9" style="width: 100.0%; height: 100.0%;"><b>Fat Sal's </b><br>Food<br>972 Gayley Ave, Los Angeles, CA 90024</div>`)[0];
+                popup_7c43ba2831dcf98d45b04d131aac5c20.setContent(html_1afcb122170081134bd259e01045a8a9);
+            
+        
+
+        marker_0f9b091130d580a84b9fea4a1b6b68ea.bindPopup(popup_7c43ba2831dcf98d45b04d131aac5c20)
+        ;
+
+        
+    
+    
+            marker_0f9b091130d580a84b9fea4a1b6b68ea.bindTooltip(
+                `<div>
+                     Fat Sal's 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7929fffb4eca2d0c0dc69b1cdbc8615c = L.marker(
+                [34.0585818, -118.1330259],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_8c396e0fac0b910d3d4cf2aa98bf6eb2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_7929fffb4eca2d0c0dc69b1cdbc8615c.setIcon(icon_8c396e0fac0b910d3d4cf2aa98bf6eb2);
+        
+    
+        var popup_d4632d8567120f0d2423b01a84767648 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_47242653e0b08ff1934fc859a4f82e69 = $(`<div id="html_47242653e0b08ff1934fc859a4f82e69" style="width: 100.0%; height: 100.0%;"><b>NBC Seafood</b><br>Food<br>404 S Atlantic Blvd, Monterey Park, CA 91754</div>`)[0];
+                popup_d4632d8567120f0d2423b01a84767648.setContent(html_47242653e0b08ff1934fc859a4f82e69);
+            
+        
+
+        marker_7929fffb4eca2d0c0dc69b1cdbc8615c.bindPopup(popup_d4632d8567120f0d2423b01a84767648)
+        ;
+
+        
+    
+    
+            marker_7929fffb4eca2d0c0dc69b1cdbc8615c.bindTooltip(
+                `<div>
+                     NBC Seafood
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_954af507ec11ed65e101925a740d9263 = L.marker(
+                [34.1459032, -118.1450799],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_f2c283bc209847fd14ab23c4a478d4ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_954af507ec11ed65e101925a740d9263.setIcon(icon_f2c283bc209847fd14ab23c4a478d4ae);
+        
+    
+        var popup_d0c1a92c0524ddeeb48ee6e05527dc17 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ec6b1d8ef615fb4e2e45d76f888a9f49 = $(`<div id="html_ec6b1d8ef615fb4e2e45d76f888a9f49" style="width: 100.0%; height: 100.0%;"><b>Lunasia</b><br>Food<br>239 E Colorado Blvd, Pasadena, CA 91101</div>`)[0];
+                popup_d0c1a92c0524ddeeb48ee6e05527dc17.setContent(html_ec6b1d8ef615fb4e2e45d76f888a9f49);
+            
+        
+
+        marker_954af507ec11ed65e101925a740d9263.bindPopup(popup_d0c1a92c0524ddeeb48ee6e05527dc17)
+        ;
+
+        
+    
+    
+            marker_954af507ec11ed65e101925a740d9263.bindTooltip(
+                `<div>
+                     Lunasia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b135b5002855603ab420fc40922b4128 = L.marker(
+                [34.0779538, -118.1257808],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_c5377a58ebc6c6288b6141e7750b9778 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b135b5002855603ab420fc40922b4128.setIcon(icon_c5377a58ebc6c6288b6141e7750b9778);
+        
+    
+        var popup_67ef500201f0f7efe654f667eacd42e1 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_bc143af98ccd248538391269b2d8b88c = $(`<div id="html_bc143af98ccd248538391269b2d8b88c" style="width: 100.0%; height: 100.0%;"><b>Banh Mi My Tho</b><br>Food<br>304 W Valley Blvd, Alhambra, CA 91801<br>⭐ FAVORITE</div>`)[0];
+                popup_67ef500201f0f7efe654f667eacd42e1.setContent(html_bc143af98ccd248538391269b2d8b88c);
+            
+        
+
+        marker_b135b5002855603ab420fc40922b4128.bindPopup(popup_67ef500201f0f7efe654f667eacd42e1)
+        ;
+
+        
+    
+    
+            marker_b135b5002855603ab420fc40922b4128.bindTooltip(
+                `<div>
+                     Banh Mi My Tho
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b34cec50569d8c3d58a758ad5b6f64c6 = L.marker(
+                [34.1301476, -118.0253383],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_10a8e864296869735b06cdfd013db981 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b34cec50569d8c3d58a758ad5b6f64c6.setIcon(icon_10a8e864296869735b06cdfd013db981);
+        
+    
+        var popup_3166d56fd20fdf6d42632bb14cb8ea35 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b2da3b5ffc7525639b33b6561cf2891e = $(`<div id="html_b2da3b5ffc7525639b33b6561cf2891e" style="width: 100.0%; height: 100.0%;"><b>626 Ice cream</b><br>Food<br>160 E Duarte Rd, Arcadia, CA 91006<br>⭐ FAVORITE</div>`)[0];
+                popup_3166d56fd20fdf6d42632bb14cb8ea35.setContent(html_b2da3b5ffc7525639b33b6561cf2891e);
+            
+        
+
+        marker_b34cec50569d8c3d58a758ad5b6f64c6.bindPopup(popup_3166d56fd20fdf6d42632bb14cb8ea35)
+        ;
+
+        
+    
+    
+            marker_b34cec50569d8c3d58a758ad5b6f64c6.bindTooltip(
+                `<div>
+                     626 Ice cream
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_050b76738efcdcd04300e85970251195 = L.marker(
+                [34.1459394, -118.1123484],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_e4592860cc713ec9a53c28ff9541bc25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_050b76738efcdcd04300e85970251195.setIcon(icon_e4592860cc713ec9a53c28ff9541bc25);
+        
+    
+        var popup_0381372f5ef0e7d5e7950cc124c11920 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9423d8b38770edefc0febb0c23e57891 = $(`<div id="html_9423d8b38770edefc0febb0c23e57891" style="width: 100.0%; height: 100.0%;"><b>Top Restaurant</b><br>Food<br>1842 E Colorado Blvd, Pasadena, CA 91107</div>`)[0];
+                popup_0381372f5ef0e7d5e7950cc124c11920.setContent(html_9423d8b38770edefc0febb0c23e57891);
+            
+        
+
+        marker_050b76738efcdcd04300e85970251195.bindPopup(popup_0381372f5ef0e7d5e7950cc124c11920)
+        ;
+
+        
+    
+    
+            marker_050b76738efcdcd04300e85970251195.bindTooltip(
+                `<div>
+                     Top Restaurant
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b66bc5a78d813065125a2b53e64b6197 = L.marker(
+                [34.1322283, -118.147206],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_703018cf98ca23d21ffb45568463c0af = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b66bc5a78d813065125a2b53e64b6197.setIcon(icon_703018cf98ca23d21ffb45568463c0af);
+        
+    
+        var popup_189730d5b641c00934a80043aa4d43fd = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_fc57076ea2aea99af6d3f3f01785627f = $(`<div id="html_fc57076ea2aea99af6d3f3f01785627f" style="width: 100.0%; height: 100.0%;"><b>Howlin' Rays</b><br>Food<br>800 S Arroyo Pkwy, Pasadena, CA 91105</div>`)[0];
+                popup_189730d5b641c00934a80043aa4d43fd.setContent(html_fc57076ea2aea99af6d3f3f01785627f);
+            
+        
+
+        marker_b66bc5a78d813065125a2b53e64b6197.bindPopup(popup_189730d5b641c00934a80043aa4d43fd)
+        ;
+
+        
+    
+    
+            marker_b66bc5a78d813065125a2b53e64b6197.bindTooltip(
+                `<div>
+                     Howlin' Rays
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8140721f9d3dc80b5e72162d9820ffcb = L.marker(
+                [34.0840525, -118.3636501],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_bab0870de4bb6fdc53a494471a7c18eb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_8140721f9d3dc80b5e72162d9820ffcb.setIcon(icon_bab0870de4bb6fdc53a494471a7c18eb);
+        
+    
+        var popup_0a87eb982c7c810e1c306d4dbe748d95 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_ea5baf69d8bb9793f16244bf07cb3f06 = $(`<div id="html_ea5baf69d8bb9793f16244bf07cb3f06" style="width: 100.0%; height: 100.0%;"><b>Community Goods</b><br>Food<br>710 N Edinburgh Ave, Los Angeles, CA 90046<br>⭐ FAVORITE</div>`)[0];
+                popup_0a87eb982c7c810e1c306d4dbe748d95.setContent(html_ea5baf69d8bb9793f16244bf07cb3f06);
+            
+        
+
+        marker_8140721f9d3dc80b5e72162d9820ffcb.bindPopup(popup_0a87eb982c7c810e1c306d4dbe748d95)
+        ;
+
+        
+    
+    
+            marker_8140721f9d3dc80b5e72162d9820ffcb.bindTooltip(
+                `<div>
+                     Community Goods
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3a7dc36d8af7a579796c48125c5b0ece = L.marker(
+                [34.0708249, -117.9366185],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_d046c10f7d2b4c10ca0f5a6c1df4dcad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3a7dc36d8af7a579796c48125c5b0ece.setIcon(icon_d046c10f7d2b4c10ca0f5a6c1df4dcad);
+        
+    
+        var popup_f4758302d878d9430415a0109cff2f15 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_089c3d9d6ecb5db580176c8c62a3686c = $(`<div id="html_089c3d9d6ecb5db580176c8c62a3686c" style="width: 100.0%; height: 100.0%;"><b>Porto's</b><br>Food<br>584 S Sunset Ave, West Covina, CA 91790<br>⭐ FAVORITE</div>`)[0];
+                popup_f4758302d878d9430415a0109cff2f15.setContent(html_089c3d9d6ecb5db580176c8c62a3686c);
+            
+        
+
+        marker_3a7dc36d8af7a579796c48125c5b0ece.bindPopup(popup_f4758302d878d9430415a0109cff2f15)
+        ;
+
+        
+    
+    
+            marker_3a7dc36d8af7a579796c48125c5b0ece.bindTooltip(
+                `<div>
+                     Porto's
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8986ac63583a8a0a6ae5a2b1c1441ba1 = L.marker(
+                [34.0901445, -118.277572],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_980cfa674b7bf0c5e09c964b8579cac9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_8986ac63583a8a0a6ae5a2b1c1441ba1.setIcon(icon_980cfa674b7bf0c5e09c964b8579cac9);
+        
+    
+        var popup_d950e467e1c5dc6c85436788834cc76e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f04b9faa1c5d54115904dcec156318a0 = $(`<div id="html_f04b9faa1c5d54115904dcec156318a0" style="width: 100.0%; height: 100.0%;"><b>Bacari Silverlake</b><br>Food<br>3626 Sunset Blvd, Los Angeles, CA 90026</div>`)[0];
+                popup_d950e467e1c5dc6c85436788834cc76e.setContent(html_f04b9faa1c5d54115904dcec156318a0);
+            
+        
+
+        marker_8986ac63583a8a0a6ae5a2b1c1441ba1.bindPopup(popup_d950e467e1c5dc6c85436788834cc76e)
+        ;
+
+        
+    
+    
+            marker_8986ac63583a8a0a6ae5a2b1c1441ba1.bindTooltip(
+                `<div>
+                     Bacari Silverlake
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b0ad59c1c6165eca9fbeaee1cc430f06 = L.marker(
+                [34.0699873, -118.291764],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_55dbfddac3794913a88a749ca94371f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "purple", "prefix": "fa"}
+            );
+            marker_b0ad59c1c6165eca9fbeaee1cc430f06.setIcon(icon_55dbfddac3794913a88a749ca94371f5);
+        
+    
+        var popup_dad6ebdd11fb0edd61949ea63366310c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f58c4e09faa56c50ee7cc2de22627999 = $(`<div id="html_f58c4e09faa56c50ee7cc2de22627999" style="width: 100.0%; height: 100.0%;"><b>Lock & Key</b><br>Nightlife<br>239 S Vermont Ave, Los Angeles, CA 90004</div>`)[0];
+                popup_dad6ebdd11fb0edd61949ea63366310c.setContent(html_f58c4e09faa56c50ee7cc2de22627999);
+            
+        
+
+        marker_b0ad59c1c6165eca9fbeaee1cc430f06.bindPopup(popup_dad6ebdd11fb0edd61949ea63366310c)
+        ;
+
+        
+    
+    
+            marker_b0ad59c1c6165eca9fbeaee1cc430f06.bindTooltip(
+                `<div>
+                     Lock & Key
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_402c8f09f4d021eb4e76e7e7d3c2c264 = L.marker(
+                [34.1282235, -118.1146475],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_4b8598688f77ed61fe04e1902c1e6143 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_402c8f09f4d021eb4e76e7e7d3c2c264.setIcon(icon_4b8598688f77ed61fe04e1902c1e6143);
+        
+    
+        var popup_7e93814d13b6137f73466a2073f5d30e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_212064b024cffe110b93e2fb8ba671f6 = $(`<div id="html_212064b024cffe110b93e2fb8ba671f6" style="width: 100.0%; height: 100.0%;"><b>The Huntington Library</b><br>Activities<br>1151 Oxford Rd, San Marino, CA 91108<br>⭐ FAVORITE</div>`)[0];
+                popup_7e93814d13b6137f73466a2073f5d30e.setContent(html_212064b024cffe110b93e2fb8ba671f6);
+            
+        
+
+        marker_402c8f09f4d021eb4e76e7e7d3c2c264.bindPopup(popup_7e93814d13b6137f73466a2073f5d30e)
+        ;
+
+        
+    
+    
+            marker_402c8f09f4d021eb4e76e7e7d3c2c264.bindTooltip(
+                `<div>
+                     The Huntington Library
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a4ba0acccf568224657e2773a592154e = L.marker(
+                [33.9856969, -118.4643455],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_85635ed77a9570fa44551e55b40868ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_a4ba0acccf568224657e2773a592154e.setIcon(icon_85635ed77a9570fa44551e55b40868ff);
+        
+    
+        var popup_bf4d76664ec451e05a70212ac3b40636 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_5b71eb11042e1eb7cb278d9e741ffe99 = $(`<div id="html_5b71eb11042e1eb7cb278d9e741ffe99" style="width: 100.0%; height: 100.0%;"><b>Venice Canals</b><br>Activities<br>2401 Eastern Ct, Venice, CA 90291<br>⭐ FAVORITE</div>`)[0];
+                popup_bf4d76664ec451e05a70212ac3b40636.setContent(html_5b71eb11042e1eb7cb278d9e741ffe99);
+            
+        
+
+        marker_a4ba0acccf568224657e2773a592154e.bindPopup(popup_bf4d76664ec451e05a70212ac3b40636)
+        ;
+
+        
+    
+    
+            marker_a4ba0acccf568224657e2773a592154e.bindTooltip(
+                `<div>
+                     Venice Canals
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4f6d92026b33ebb814b781e51260cce7 = L.marker(
+                [34.0767942, -118.2567607],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_4211b5dc5fac47d783d8cec61abf1cdd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_4f6d92026b33ebb814b781e51260cce7.setIcon(icon_4211b5dc5fac47d783d8cec61abf1cdd);
+        
+    
+        var popup_8d4cc0242fcd2b70a5735dfd813b763c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0a1d6e61729588347b88fd25651ab637 = $(`<div id="html_0a1d6e61729588347b88fd25651ab637" style="width: 100.0%; height: 100.0%;"><b>Sunday's Best </b><br>Activities<br>1557 W Sunset Blvd, Los Angeles, CA 90026</div>`)[0];
+                popup_8d4cc0242fcd2b70a5735dfd813b763c.setContent(html_0a1d6e61729588347b88fd25651ab637);
+            
+        
+
+        marker_4f6d92026b33ebb814b781e51260cce7.bindPopup(popup_8d4cc0242fcd2b70a5735dfd813b763c)
+        ;
+
+        
+    
+    
+            marker_4f6d92026b33ebb814b781e51260cce7.bindTooltip(
+                `<div>
+                     Sunday's Best 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_948e4622447d3dac5f8bc2837907793e = L.marker(
+                [34.0771544, -118.25666],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_970fe54cd95ebbefdd756a3302b73c66 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_948e4622447d3dac5f8bc2837907793e.setIcon(icon_970fe54cd95ebbefdd756a3302b73c66);
+        
+    
+        var popup_972addf09da03d0ed97f16489703c183 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_7648efbd2699972956be0157eb646f09 = $(`<div id="html_7648efbd2699972956be0157eb646f09" style="width: 100.0%; height: 100.0%;"><b>Crossroads Trading</b><br>Activities<br>1316 Echo Park Ave, Los Angeles, CA 90026<br>⭐ FAVORITE</div>`)[0];
+                popup_972addf09da03d0ed97f16489703c183.setContent(html_7648efbd2699972956be0157eb646f09);
+            
+        
+
+        marker_948e4622447d3dac5f8bc2837907793e.bindPopup(popup_972addf09da03d0ed97f16489703c183)
+        ;
+
+        
+    
+    
+            marker_948e4622447d3dac5f8bc2837907793e.bindTooltip(
+                `<div>
+                     Crossroads Trading
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bb898617ee4c58d0b8bd5e9303c19c39 = L.marker(
+                [34.073998, -118.4377339],
+                {}
+            ).addTo(map_e6a51fd158c016b45332b39ee02eda42);
+        
+    
+            var icon_35101fb44317aec34dca904b1e08b762 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_bb898617ee4c58d0b8bd5e9303c19c39.setIcon(icon_35101fb44317aec34dca904b1e08b762);
+        
+    
+        var popup_096963954fa69d97913d64703acc706e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9455f2cbfdf06e648a29629e66f4e493 = $(`<div id="html_9455f2cbfdf06e648a29629e66f4e493" style="width: 100.0%; height: 100.0%;"><b>UCLA Planetarium</b><br>Activities<br>405 Hilgard Ave, Los Angeles, CA 90095</div>`)[0];
+                popup_096963954fa69d97913d64703acc706e.setContent(html_9455f2cbfdf06e648a29629e66f4e493);
+            
+        
+
+        marker_bb898617ee4c58d0b8bd5e9303c19c39.bindPopup(popup_096963954fa69d97913d64703acc706e)
+        ;
+
+        
+    
+    
+            marker_bb898617ee4c58d0b8bd5e9303c19c39.bindTooltip(
+                `<div>
+                     UCLA Planetarium
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
